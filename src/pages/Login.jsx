@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Container, Form, Button, Alert, Image } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -12,14 +13,16 @@ function Login() {
     return caracteres.test(password);
   };
 
+  const redirecione = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (verifyPassword()) {
       setValidPassword(false);
-      console.log("Login realizado com sucesso");
+
+      redirecione("/lista-farmacias");
     } else {
       setValidPassword(true);
-      console.log("Login não realizado");
     }
   };
 

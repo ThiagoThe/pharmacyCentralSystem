@@ -9,6 +9,10 @@ import "./index.css";
 // import pages
 import Login from "./pages/Login";
 import Error from "./pages/Error";
+import CadastroFarm from "./pages/CadastroFarm";
+import CadastroMed from "./pages/CadastroMed";
+import ListaFarm from "./pages/ListaFarm";
+import ListaMed from "./pages/ListaMed";
 
 // browser router
 const routes = createBrowserRouter([
@@ -16,7 +20,13 @@ const routes = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <Error />,
-    children: [{ path: "/", element: <Login /> }],
+    children: [
+      { path: "/", element: <Login /> },
+      { path: "/cadastro-farmacias", element: <CadastroFarm /> },
+      { path: "/cadastro-medicamentos", element: <CadastroMed /> },
+      { path: "/lista-farmacias", element: <ListaFarm /> },
+      { path: "/lista-medicamentos", element: <ListaMed /> },
+    ],
   },
 ]);
 
