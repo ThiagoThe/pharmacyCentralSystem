@@ -5,15 +5,21 @@ import { Container, Form, Button, Alert, Image } from "react-bootstrap";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [validPassword, setValidPassword] = useState("false");
+  const [validPassword, setValidPassword] = useState(false);
+
+  const verifyPassword = () => {
+    const caracteres = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return caracteres.test(password);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validatePassword(password)) {
-      setValidPassword(true);
-      return;
-    } else {
+    if (verifyPassword()) {
       setValidPassword(false);
+      console.log("Login realizado com sucesso");
+    } else {
+      setValidPassword(true);
+      console.log("Login não realizado");
     }
   };
 
