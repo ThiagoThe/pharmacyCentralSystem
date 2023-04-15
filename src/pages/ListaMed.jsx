@@ -1,6 +1,7 @@
 import React from "react";
 import { Header } from "../components/Header/Header";
 import { Container, Row } from "react-bootstrap";
+import { CardMed } from "../components/Card/CardMed";
 
 function ListaMed() {
   return (
@@ -10,6 +11,7 @@ function ListaMed() {
         <Row className="m-5 text-center">
           <h2>Medicamentos</h2>
         </Row>
+        <Row></Row>
       </Container>
     </>
   );
