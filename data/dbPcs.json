@@ -1,0 +1,87 @@
+{
+  "farmacias": [
+    {
+      "id": 1,
+      "razao_social": "Farmácia Central LTDA",
+      "cnpj": "12.345.678/0001-90",
+      "nome_fantasia": "Farmácia Central",
+      "email": "farmaciacentral@exemplo.com",
+      "telefone": "(00) 0000-0000",
+      "celular": "(00) 00000-0000",
+      "endereco": {
+        "cep": "00000-000",
+        "logradouro": "Rua dos Remédios",
+        "numero": "123",
+        "bairro": "Centro",
+        "cidade": "Cidade Nova",
+        "estado": "SP",
+        "complemento": "Sala 1"
+      }
+    },
+    {
+      "id": 2,
+      "razao_social": "Farmácia Popular ME",
+      "cnpj": "98.765.432/0001-21",
+      "nome_fantasia": "Farmácia Popular",
+      "email": "farmaciapopular@exemplo.com",
+      "telefone": "(00) 0000-0000",
+      "celular": "(00) 00000-0000",
+      "endereco": {
+        "cep": "11111-111",
+        "logradouro": "Avenida dos Medicamentos",
+        "numero": "456",
+        "bairro": "Jardim das Flores",
+        "cidade": "Cidade Velha",
+        "estado": "RJ",
+        "complemento": ""
+      }
+    },
+    {
+      "id": 3,
+      "razao_social": "Drogaria da Gente S.A.",
+      "cnpj": "23.456.789/0001-54",
+      "nome_fantasia": "Drogaria da Gente",
+      "email": "drogariadagente@exemplo.com",
+      "telefone": "(00) 0000-0000",
+      "celular": "(00) 00000-0000",
+      "endereco": {
+        "cep": "22222-222",
+        "logradouro": "Praça dos Remédios",
+        "numero": "789",
+        "bairro": "Vila Industrial",
+        "cidade": "Cidade do Futuro",
+        "estado": "MG",
+        "complemento": "Loja 2"
+      }
+    }
+  ],
+  "medicamentos": [
+    {
+      "id": 1,
+      "nome": "Paracetamol",
+      "laboratorio": "EMS",
+      "dosagem": "500mg",
+      "descricao": "Analgésico e antitérmico",
+      "preco_unitario": 2.5,
+      "tipo": "Comprimido"
+    },
+    {
+      "id": 2,
+      "nome": "Amoxicilina",
+      "laboratorio": "Eurofarma",
+      "dosagem": "500mg",
+      "descricao": "Antibiótico",
+      "preco_unitario": 5.8,
+      "tipo": "Cápsula"
+    },
+    {
+      "id": 3,
+      "nome": "Dipirona",
+      "laboratorio": "Biolab",
+      "dosagem": "1g",
+      "descricao": "Analgésico e antitérmico",
+      "preco_unitario": 3.2,
+      "tipo": "Comprimido"
+    }
+  ]
+}
