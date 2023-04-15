@@ -22,6 +22,7 @@ function CadastroFarm() {
               <Form.Control
                 type="text"
                 placeholder="Razão Social da farmácia"
+                required
               />
             </Form.Group>
 
@@ -30,6 +31,7 @@ function CadastroFarm() {
               <Form.Control
                 type="text"
                 placeholder="Digite o CNPJ da farmácia"
+                required
               />
             </Form.Group>
 
@@ -38,23 +40,36 @@ function CadastroFarm() {
               <Form.Control
                 type="text"
                 placeholder="Nome fantasia da farmácia"
+                required
               />
             </Form.Group>
           </Row>
           <Row className="mb-4">
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Digite o email" />
+              <Form.Control
+                type="email"
+                placeholder="Digite o email"
+                required
+              />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridTel">
               <Form.Label>Telefone</Form.Label>
-              <Form.Control type="tel" placeholder="Número de Telefone" />
+              <Form.Control
+                type="tel"
+                placeholder="Número de Telefone"
+                required
+              />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridCel">
               <Form.Label>Celular</Form.Label>
-              <Form.Control type="tel" placeholder="Número de Celular" />
+              <Form.Control
+                type="tel"
+                placeholder="Número de Celular"
+                required
+              />
             </Form.Group>
           </Row>
 
