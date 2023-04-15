@@ -4,7 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 export const CardMed = ({ medicamento }) => {
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+      <Card.Img variant="top" src="/img/logo1.png" />
       <Card.Body>
         <Card.Title>{medicamento.nome}</Card.Title>
         <Card.Text>{medicamento.descricao}</Card.Text>
