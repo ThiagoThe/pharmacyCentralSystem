@@ -1,7 +1,13 @@
 import React from "react";
+import { Header } from "../components/Header/Header";
 
 function CadastroFarm() {
-  return <div>CadastroFarm</div>;
+  return (
+    <>
+      <Header />
+      <p>CadastroFarm</p>
+    </>
+  );
 }
 
 export default CadastroFarm;

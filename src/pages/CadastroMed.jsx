@@ -1,7 +1,13 @@
 import React from "react";
+import { Header } from "../components/Header/Header";
 
 function CadastroMed() {
-  return <div>CadastroMed</div>;
+  return (
+    <>
+      <Header />
+      <p>CadastroMed</p>
+    </>
+  );
 }
 
 export default CadastroMed;

@@ -1,10 +1,12 @@
 import React from "react";
+import { Header } from "../components/Header/Header";
 
 function Error() {
   return (
-    <div>
-      <p>Page Error</p>{" "}
-    </div>
+    <>
+      <Header />
+      <p>Page Error</p>
+    </>
   );
 }
 
