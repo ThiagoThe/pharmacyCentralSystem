@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Header } from "../components/Header/Header";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -7,6 +8,23 @@ import Row from "react-bootstrap/Row";
 import { Container } from "react-bootstrap";
 
 function CadastroFarm() {
+  const [endereco, setEndereco] = useState();
+
+  const [formulario, setFormulario] = useState({
+    cep: "",
+  });
+
+  const atualizarCampo = (campo, valor) => {
+    const novosDados = { ...formulario, [campo]: valor };
+    setFormulario(novosDados);
+  };
+
+  const buscarCep = () => {
+    fetch(`https://viacep.com.br/ws/${formulario.cep}/json/`)
+      .then((resposta) => resposta.json())
+      .then((dados) => setEndereco(dados));
+  };
+
   return (
     <>
       <Header />
@@ -82,23 +100,32 @@ function CadastroFarm() {
           <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridCep">
               <Form.Label>CEP</Form.Label>
-              <Form.Control placeholder="CEP" required />
+              <Form.Control
+                value={formulario.cep}
+                onChange={(evento) =>
+                  atualizarCampo("cep", evento.target.value)
+                }
+                required
+              />
+              <Button variant="primary" onClick={buscarCep}>
+                B
+              </Button>
             </Form.Group>
-
+            {console.log(endereco)}
             <Form.Group as={Col} controlId="formGridCidade">
               <Form.Label>Cidade</Form.Label>
-              <Form.Control type="text" placeholder="Cidade" required />
+              <Form.Control type="text" value={endereco?.localidade} required />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridEstado">
               <Form.Label>Estado</Form.Label>
-              <Form.Control type="text" placeholder="Estado" required />
+              <Form.Control type="text" value={endereco?.uf} required />
             </Form.Group>
           </Row>
 
           <Form.Group className="mb-3" controlId="formGridAddress1">
             <Form.Label>Logradouro/Endereço</Form.Label>
-            <Form.Control placeholder="Avenida/Rua/Servidão" required />
+            <Form.Control value={endereco?.logradouro} required />
           </Form.Group>
 
           <Row className="mb-3">
@@ -109,7 +136,7 @@ function CadastroFarm() {
 
             <Form.Group as={Col} controlId="formGridBairro">
               <Form.Label>Bairro</Form.Label>
-              <Form.Control type="text" placeholder="Bairro" required />
+              <Form.Control type="text" value={endereco?.bairro} required />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridCompl">
