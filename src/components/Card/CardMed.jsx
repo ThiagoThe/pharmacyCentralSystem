@@ -1,16 +1,13 @@
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
+import { Card, Button } from "react-bootstrap";
 
-export const CardMed = ({ medicamento }) => {
+export const CardMed = () => {
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="/img/logo1.png" />
+      <Card.Img variant="top" src="/img/remedio.jpg" />
       <Card.Body>
-        <Card.Title>{medicamento.nome}</Card.Title>
-        <Card.Text>{medicamento.laboratorio}</Card.Text>
-      </Card.Body>
-      <Card.Body>
-        <Card.Link href="#"> + Detalhes</Card.Link>
+        <Card.Title>Nome do remédio</Card.Title>
+        <Card.Text>Laboratório</Card.Text>
+        <Button variant="primary">Mais informações</Button>
       </Card.Body>
     </Card>
   );

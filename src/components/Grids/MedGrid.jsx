@@ -1,15 +1,17 @@
 import { useMed } from "../../contexts/medContext";
 import { CardMed } from "../Card/CardMed";
-import CardGroup from "react-bootstrap/CardGroup";
+import { Col, Row, Card } from "react-bootstrap";
 
 export const MedGrid = () => {
   const context = useMed();
 
   return (
-    <CardGroup xs={1} md={3} className="g-4">
-      {context.medicamentos.map((medicamento) => {
-        return <CardMed medicamento={medicamento} />;
-      })}
-    </CardGroup>
+    <Row xs={1} md={3} className="g-4">
+      {Array.from({ length: 12 }).map((_, idx) => (
+        <Col>
+          <CardMed />
+        </Col>
+      ))}
+    </Row>
   );
 };
