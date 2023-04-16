@@ -15,7 +15,9 @@
         "bairro": "Centro",
         "cidade": "Cidade Nova",
         "estado": "SP",
-        "complemento": "Sala 1"
+        "complemento": "Sala 1",
+        "geocode": [48.85, 2.3522],
+        "pouUp": "Farmacia Central"
       }
     },
     {
@@ -33,7 +35,9 @@
         "bairro": "Jardim das Flores",
         "cidade": "Cidade Velha",
         "estado": "RJ",
-        "complemento": ""
+        "complemento": "",
+        "geocode": [48.855, 2.34],
+        "pouUp": "Faracia Popular"
       }
     },
     {
@@ -51,7 +55,9 @@
         "bairro": "Vila Industrial",
         "cidade": "Cidade do Futuro",
         "estado": "MG",
-        "complemento": "Loja 2"
+        "complemento": "Loja 2",
+        "geocode": [48.86, 2.3522],
+        "pouUp": "Drogaria da Gente"
       }
     }
   ],
