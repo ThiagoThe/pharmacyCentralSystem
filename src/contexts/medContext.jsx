@@ -15,8 +15,8 @@ export const MedProvider = ({ children }) => {
       .then((resposta) => {
         return resposta.json();
       })
-      .then((dados) => {
-        setMedicamentos(dados);
+      .then((data) => {
+        setMedicamentos(data);
       });
   }, []);
 

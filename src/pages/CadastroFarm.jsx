@@ -79,6 +79,23 @@ function CadastroFarm() {
             </Col>
           </Row>
 
+          <Row className="mb-3">
+            <Form.Group as={Col} controlId="formGridCep">
+              <Form.Label>CEP</Form.Label>
+              <Form.Control placeholder="CEP" required />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridCidade">
+              <Form.Label>Cidade</Form.Label>
+              <Form.Control type="text" placeholder="Cidade" required />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridEstado">
+              <Form.Label>Estado</Form.Label>
+              <Form.Control type="text" placeholder="Estado" required />
+            </Form.Group>
+          </Row>
+
           <Form.Group className="mb-3" controlId="formGridAddress1">
             <Form.Label>Logradouro/Endereço</Form.Label>
             <Form.Control placeholder="Avenida/Rua/Servidão" required />
@@ -100,25 +117,9 @@ function CadastroFarm() {
               <Form.Control type="text" placeholder="N° Sala/Apto/Prox/Etc." />
             </Form.Group>
           </Row>
-          <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridCidade">
-              <Form.Label>Cidade</Form.Label>
-              <Form.Control type="text" placeholder="Cidade" required />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridEstado">
-              <Form.Label>Estado</Form.Label>
-              <Form.Control type="text" placeholder="Estado" required />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridCep">
-              <Form.Label>CEP</Form.Label>
-              <Form.Control placeholder="CEP" required />
-            </Form.Group>
-          </Row>
 
           <Button variant="primary" type="submit">
-            Submit
+            Cadastrar Farmácia
           </Button>
         </Form>
       </Container>
