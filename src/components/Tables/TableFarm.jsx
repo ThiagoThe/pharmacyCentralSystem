@@ -1,7 +1,10 @@
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import { Table, Button, Modal } from "react-bootstrap";
+import { useFarm } from "../../contexts/farmContext";
 
-function TableFarm() {
+export function TableFarm() {
+  const context = useFarm();
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -10,6 +13,7 @@ function TableFarm() {
   return (
     <>
       <Table responsive>
+        {console.log(context)}
         <thead>
           <tr>
             <th>N°</th>
@@ -68,5 +72,3 @@ function TableFarm() {
     </>
   );
 }
-
-export default TableFarm;

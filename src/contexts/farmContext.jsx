@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, createContext, useState, useContext } from "react";
 
 export const farmContext = createContext();
@@ -8,19 +9,22 @@ export const useFarm = () => {
 };
 
 export const FarmProvider = ({ children }) => {
-  const [farmacia, setFarmacia] = useState([]);
+  const [farmacias, setFarmacias] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/farmacias")
-      .then((resposta) => {
-        return resposta.json();
+    axios
+      .get("http://localhost:3000/farmacias")
+      .then((response) => {
+        return response.json;
       })
-      .then((dados) => {
-        setFarmacia(dados);
-      });
+      .then((dados) => setFarmacias(dados));
   }, []);
 
-  const contextValues = { farmacia };
+  const contextValues = { farmacias };
 
-  return <Context.Provider value={contextValues}>{children}</Context.Provider>;
+  return (
+    <farmContext.Provider value={contextValues}>
+      {children}
+    </farmContext.Provider>
+  );
 };

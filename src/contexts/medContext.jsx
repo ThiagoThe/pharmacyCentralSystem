@@ -22,5 +22,7 @@ export const MedProvider = ({ children }) => {
 
   const contextValues = { medicamentos };
 
-  return <Context.Provider value={contextValues}>{children}</Context.Provider>;
+  return (
+    <medContext.Provider value={contextValues}>{children}</medContext.Provider>
+  );
 };

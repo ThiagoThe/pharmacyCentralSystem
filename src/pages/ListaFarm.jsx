@@ -2,7 +2,7 @@ import React from "react";
 import { Header } from "../components/Header/Header";
 import { Container, Row } from "react-bootstrap";
 import { Map } from "../components/Map/Map";
-import TableFarm from "../components/Tables/TableFarm";
+import { TableFarm } from "../components/Tables/TableFarm";
 
 function ListaFarm() {
   return (
