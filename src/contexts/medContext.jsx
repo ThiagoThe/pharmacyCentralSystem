@@ -1,4 +1,5 @@
 import { useEffect, createContext, useState, useContext } from "react";
+import axios from "axios";
 
 export const medContext = createContext();
 
@@ -11,13 +12,12 @@ export const MedProvider = ({ children }) => {
   const [medicamentos, setMedicamentos] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/medicamentos")
-      .then((resposta) => {
-        return resposta.json();
+    axios
+      .get("http://localhost:3000/medicamentos")
+      .then((response) => {
+        return response.json();
       })
-      .then((data) => {
-        setMedicamentos(data);
-      });
+      .then((dados) => setMedicamentos(dados));
   }, []);
 
   const contextValues = { medicamentos };

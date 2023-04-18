@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Card, Button, Modal } from "react-bootstrap";
+import { useMed } from "../../contexts/medContext";
 
 export const CardMed = () => {
+  const context = useMed();
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -10,7 +13,7 @@ export const CardMed = () => {
   return (
     <>
       <Card style={{ width: "18rem" }}>
-        
+        {console.log(context)}
         <Card.Img variant="top" src="/img/remedio.jpg" />
         <Card.Body>
           <Card.Title>Nome do remédio</Card.Title>
