@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { Card, Button, Modal } from "react-bootstrap";
-import { useMed } from "../../contexts/medContext";
 
-export const CardMed = () => {
-  const context = useMed();
-
+export const CardMed = ({ medicamento }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -13,11 +10,10 @@ export const CardMed = () => {
   return (
     <>
       <Card style={{ width: "18rem" }}>
-        {console.log(context)}
         <Card.Img variant="top" src="/img/remedio.jpg" />
         <Card.Body>
-          <Card.Title>Nome do remédio</Card.Title>
-          <Card.Text>Laboratório</Card.Text>
+          <Card.Title>{medicamento.nome}</Card.Title>
+          <Card.Text>{medicamento.laboratorio}</Card.Text>
           <Button variant="primary" onClick={handleShow}>
             Mais informações
           </Button>
@@ -25,18 +21,18 @@ export const CardMed = () => {
       </Card>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Nome do medicamento</Modal.Title>
+          <Modal.Title>{medicamento.nome}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Lab:
+          Laboratório: {medicamento.laboratorio}
           <br />
-          Descrição:
+          Descrição:{medicamento.descricao}
           <br />
-          Dosagem:
+          Dosagem:{medicamento.dosagem}
           <br />
-          Tipo:
+          Tipo:{medicamento.tipo}
           <br />
-          Preço R$:
+          Preço R$:{medicamento.preco_unitario}
           <br />
         </Modal.Body>
         <Modal.Footer>
