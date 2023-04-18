@@ -15,7 +15,7 @@ export const MedProvider = ({ children }) => {
     axios
       .get("http://localhost:8080/medicamentos")
       .then((response) => {
-        return response.json();
+        return response.data;
       })
       .then((dados) => setMedicamentos(dados));
   }, []);
