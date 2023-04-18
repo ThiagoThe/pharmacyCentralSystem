@@ -13,7 +13,7 @@ export const FarmProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/farmacias")
+      .get("http://localhost:8080/farmacias")
       .then((response) => {
         return response.json();
       })

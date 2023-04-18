@@ -13,7 +13,7 @@ export const MedProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/medicamentos")
+      .get("http://localhost:8080/medicamentos")
       .then((response) => {
         return response.json();
       })
