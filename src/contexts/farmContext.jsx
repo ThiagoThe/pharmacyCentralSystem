@@ -15,7 +15,7 @@ export const FarmProvider = ({ children }) => {
     axios
       .get("http://localhost:3000/farmacias")
       .then((response) => {
-        return response.json;
+        return response.json();
       })
       .then((dados) => setFarmacias(dados));
   }, []);

@@ -10,6 +10,7 @@ export const CardMed = () => {
   return (
     <>
       <Card style={{ width: "18rem" }}>
+        
         <Card.Img variant="top" src="/img/remedio.jpg" />
         <Card.Body>
           <Card.Title>Nome do remédio</Card.Title>
