@@ -8,6 +8,7 @@
       "email": "farmaciacentral@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
+      "popUp": "Farmacia Central",
       "endereco": {
         "cep": "00000-000",
         "logradouro": "Rua dos Remédios",
@@ -16,8 +17,7 @@
         "cidade": "Cidade Nova",
         "estado": "SP",
         "complemento": "Sala 1",
-        "geocode": [48.85, 2.3522],
-        "popUp": "Farmacia Central"
+        "geocode": [48.85, 2.3522]
       }
     },
     {
@@ -28,6 +28,7 @@
       "email": "farmaciapopular@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
+      "popUp": "Faracia Popular",
       "endereco": {
         "cep": "11111-111",
         "logradouro": "Avenida dos Medicamentos",
@@ -36,8 +37,7 @@
         "cidade": "Cidade Velha",
         "estado": "RJ",
         "complemento": "",
-        "geocode": [48.855, 2.34],
-        "popUp": "Faracia Popular"
+        "geocode": [48.855, 2.34]
       }
     },
     {
@@ -48,6 +48,7 @@
       "email": "drogariadagente@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
+      "popUp": "Drogaria da Gente",
       "endereco": {
         "cep": "22222-222",
         "logradouro": "Praça dos Remédios",
@@ -56,8 +57,7 @@
         "cidade": "Cidade do Futuro",
         "estado": "MG",
         "complemento": "Loja 2",
-        "geocode": [48.86, 2.3522],
-        "popUp": "Drogaria da Gente"
+        "geocode": [48.86, 2.3522]
       }
     }
   ],

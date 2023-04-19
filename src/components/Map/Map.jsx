@@ -15,9 +15,7 @@ export const Map = () => {
       <MarkerClusterGroup>
         {geo.farmacias.map((farmacia) => (
           <Marker position={farmacia.endereco.geocode} key={farmacia.id}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
+            <Popup>{farmacia.popUp}</Popup>
           </Marker>
         ))}
       </MarkerClusterGroup>
