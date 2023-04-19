@@ -26,13 +26,13 @@ export const CardMed = ({ medicamento }) => {
         <Modal.Body>
           Laboratório: {medicamento.laboratorio}
           <br />
-          Descrição:{medicamento.descricao}
+          Descrição: {medicamento.descricao}
           <br />
-          Dosagem:{medicamento.dosagem}
+          Dosagem: {medicamento.dosagem}
           <br />
-          Tipo:{medicamento.tipo}
+          Tipo: {medicamento.tipo}
           <br />
-          Preço R$:{medicamento.preco_unitario}
+          Preço R$: {medicamento.preco_unitario}
           <br />
         </Modal.Body>
         <Modal.Footer>

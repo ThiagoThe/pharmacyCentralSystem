@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Header } from "../components/Header/Header";
 import { Container, Button, Col, Form, Row, InputGroup } from "react-bootstrap";
 
-function CadastroFarm() {
+function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
   const [endereco, setEndereco] = useState();
 
   const [formulario, setFormulario] = useState({
@@ -29,7 +29,7 @@ function CadastroFarm() {
           <h2>Cadastro de nova farmácia</h2>
         </Row>
 
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Row className="mb-3">
             <Form.Group className="mb-3" controlId="formGridRazao">
               <Form.Label>Razão Social</Form.Label>

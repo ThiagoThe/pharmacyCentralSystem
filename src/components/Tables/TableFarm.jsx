@@ -22,8 +22,8 @@ export function TableFarm({ farmacia }) {
           <tr>
             <td>{farmacia.id}</td>
             <td>{farmacia.razao_social}</td>
-            <td>{farmacia.cidade}</td>
-            <td>{farmacia.estado}</td>
+            <td>{farmacia.endereco.cidade}</td>
+            <td>{farmacia.endereco.estado}</td>
 
             <Button variant="info" onClick={handleShow}>
               Info
@@ -33,7 +33,7 @@ export function TableFarm({ farmacia }) {
       </Table>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{context.razao_social}</Modal.Title>
+          <Modal.Title>{farmacia.razao_social}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           Nome fantasia: {farmacia.razao_socialnome_fantasia}
