@@ -69,7 +69,7 @@
       "dosagem": "500mg",
       "descricao": "Analgésico e antitérmico",
       "preco_unitario": 2.5,
-      "tipo": "Comprimido"
+      "tipo": "Medicamento comum"
     },
     {
       "id": 2,
@@ -78,7 +78,7 @@
       "dosagem": "500mg",
       "descricao": "Antibiótico",
       "preco_unitario": 5.8,
-      "tipo": "Cápsula"
+      "tipo": "Medicamento controlado"
     },
     {
       "id": 3,
@@ -87,7 +87,61 @@
       "dosagem": "1g",
       "descricao": "Analgésico e antitérmico",
       "preco_unitario": 3.2,
-      "tipo": "Comprimido"
+      "tipo": "Medicamento comum"
+    },
+    {
+      "id": 4,
+      "nome": "Omeprazol",
+      "laboratorio": "Aché",
+      "dosagem": "20mg",
+      "descricao": "Inibidor da bomba de prótons para tratamento de úlceras e refluxo",
+      "tipo": "Medicamento comum",
+      "preco_unitario": 15.2
+    },
+    {
+      "id": 5,
+      "nome": "Dorflex",
+      "laboratorio": "Sanofi",
+      "dosagem": "50mg + 35mg",
+      "descricao": "Analgésico e relaxante muscular",
+      "tipo": "Medicamento comum",
+      "preco_unitario": 8.9
+    },
+    {
+      "id": 6,
+      "nome": "Allegra",
+      "laboratorio": "Sanofi",
+      "dosagem": "180mg",
+      "descricao": "Antialérgico",
+      "tipo": "Medicamento comum",
+      "preco_unitario": 25.9
+    },
+    {
+      "id": 7,
+      "nome": "Rivotril",
+      "laboratorio": "Roche",
+      "dosagem": "2mg",
+      "descricao": "Ansiolítico e anticonvulsivante",
+      "tipo": "Medicamento controlado",
+      "preco_unitario": 32.5
+    },
+    {
+      "id": 8,
+      "nome": "AAS",
+      "laboratorio": "Bayer",
+      "dosagem": "500mg",
+      "descricao": "Analgésico, antitérmico e anti-inflamatório",
+      "tipo": "Medicamento comum",
+      "preco_unitario": 5.8
+    },
+    {
+      "id": 9,
+      "nome": "Fluoxetina",
+      "laboratorio": "EMS",
+      "dosagem": "20mg",
+      "descricao": "Antidepressivo",
+      "tipo": "Medicamento controlado",
+      "preco_unitario": 10.7
     }
   ]
 }
