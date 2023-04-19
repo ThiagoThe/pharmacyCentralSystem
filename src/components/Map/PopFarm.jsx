@@ -1,31 +1,33 @@
 import { React } from "react";
-import { Modal } from "react-bootstrap";
-import { useFarm } from "../../contexts/farmContext";
 
-export const PopFarm = () => {
+export const PopFarm = ({ farmacia }) => {
   return (
     <div>
-      Nome fantasia: farmacia
+      <h6>{farmacia.razao_social}</h6>
       <br />
-      CNPJ: farmacia
+      <hr />
       <br />
-      Email: CNPJ: farmacia
+      Nome fantasia: {farmacia.nome_fantasia}
       <br />
-      Telefone: CNPJ: farmacia Celular: CNPJ: farmacia
+      CNPJ: {farmacia.cnpj}
       <br />
-      CEP: CNPJ: farmacia
+      Email: {farmacia.email}
       <br />
-      Cidade: CNPJ: farmacia
+      Telefone: {farmacia.telefone}
       <br />
-      Estado: CNPJ: farmacia
+      CEP: {farmacia.endereco.cep}
       <br />
-      Endereço: CNPJ: farmacia
+      Cidade: {farmacia.endereco.cidade}
       <br />
-      Numero: CNPJ: farmacia
+      Estado: {farmacia.endereco.estado}
       <br />
-      Bairro: CNPJ: farmacia
+      Endereço: {farmacia.endereco.logradouro}
       <br />
-      Complemento: CNPJ: farmacia
+      Numero: {farmacia.endereco.numero}
+      <br />
+      Bairro: {farmacia.endereco.bairro}
+      <br />
+      Complemento: {farmacia.endereco.complemento}
     </div>
   );
 };

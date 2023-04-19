@@ -8,7 +8,6 @@
       "email": "farmaciacentral@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
-      "popUp": "Farmacia Central",
       "endereco": {
         "cep": "00000-000",
         "logradouro": "Rua dos Remédios",
@@ -28,7 +27,6 @@
       "email": "farmaciapopular@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
-      "popUp": "Faracia Popular",
       "endereco": {
         "cep": "11111-111",
         "logradouro": "Avenida dos Medicamentos",
@@ -48,7 +46,6 @@
       "email": "drogariadagente@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
-      "popUp": "Drogaria da Gente",
       "endereco": {
         "cep": "22222-222",
         "logradouro": "Praça dos Remédios",
