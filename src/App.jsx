@@ -6,11 +6,11 @@ import { FarmProvider } from "./contexts/farmContext";
 function App() {
   return (
     <div className="App">
-      <FarmProvider>
-        <MedProvider>
+      <MedProvider>
+        <FarmProvider>
           <Outlet />
-        </MedProvider>
-      </FarmProvider>
+        </FarmProvider>
+      </MedProvider>
     </div>
   );
 }

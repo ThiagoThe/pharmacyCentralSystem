@@ -3,8 +3,11 @@ import { Header } from "../components/Header/Header";
 import { Container, Row } from "react-bootstrap";
 import { Map } from "../components/Map/Map";
 import { TableFarm } from "../components/Tables/TableFarm";
+import { useFarm } from "../contexts/farmContext";
 
 function ListaFarm() {
+  const context = useFarm();
+
   return (
     <>
       <Header />
@@ -16,7 +19,9 @@ function ListaFarm() {
           <Map />
         </Row>
         <Row className="m-5">
-          <TableFarm />
+          {context.farmacias.map((farmacia) => (
+            <TableFarm farmacia={farmacia} />
+          ))}
         </Row>
       </Container>
     </>

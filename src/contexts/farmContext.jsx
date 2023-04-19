@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useEffect, createContext, useState, useContext } from "react";
+import axios from "axios";
 
 export const farmContext = createContext();
 
@@ -15,7 +15,7 @@ export const FarmProvider = ({ children }) => {
     axios
       .get("http://localhost:8080/farmacias")
       .then((response) => {
-        return response.json();
+        return response.data;
       })
       .then((dados) => setFarmacias(dados));
   }, []);

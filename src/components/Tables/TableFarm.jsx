@@ -1,10 +1,7 @@
 import { React, useState } from "react";
 import { Table, Button, Modal } from "react-bootstrap";
-import { useFarm } from "../../contexts/farmContext";
 
-export function TableFarm() {
-  const context = useFarm();
-
+export function TableFarm({ farmacia }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -13,21 +10,21 @@ export function TableFarm() {
   return (
     <>
       <Table responsive>
-        {console.log(context)}
         <thead>
           <tr>
             <th>N°</th>
-            {Array.from({ length: 3 }).map((_, index) => (
-              <th key={index}>Estado</th>
-            ))}
+            <th>Razão Social</th>
+            <th>Cidade</th>
+            <th>Estado</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            {Array.from({ length: 3 }).map((_, index) => (
-              <td key={index}>Table cell {index}</td>
-            ))}
+            <td>{farmacia.id}</td>
+            <td>{farmacia.razao_social}</td>
+            <td>{farmacia.cidade}</td>
+            <td>{farmacia.estado}</td>
+
             <Button variant="info" onClick={handleShow}>
               Info
             </Button>
@@ -36,32 +33,32 @@ export function TableFarm() {
       </Table>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Razão Social </Modal.Title>
+          <Modal.Title>{context.razao_social}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Nome fantasia:
+          Nome fantasia: {farmacia.razao_socialnome_fantasia}
           <br />
-          CNPJ:
+          CNPJ: {farmacia.cnpj}
           <br />
-          Email:
+          Email: {farmacia.email}
           <br />
-          Telefone:
+          Telefone: {farmacia.telefone}
           <br />
-          Celular:
+          Celular: {farmacia.celular}
           <br />
-          CEP:
+          CEP: {farmacia.endereco.cep}
           <br />
-          Cidade:
+          Cidade: {farmacia.endereco.cidade}
           <br />
-          Estado:
+          Estado: {farmacia.endereco.estado}
           <br />
-          Endereço:
+          Endereço: {farmacia.endereco.logradouro}
           <br />
-          Numero:
+          Numero: {farmacia.endereco.numero}
           <br />
-          Bairro:
+          Bairro: {farmacia.endereco.estado}
           <br />
-          Complemento:
+          Complemento: {farmacia.endereco.complemento}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
