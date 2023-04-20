@@ -3,24 +3,57 @@ import { useState } from "react";
 import { Header } from "../components/Header/Header";
 import { Container, Button, Col, Form, Row, InputGroup } from "react-bootstrap";
 
-function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
+function CadastroFarm() {
   const [endereco, setEndereco] = useState();
 
   const [formulario, setFormulario] = useState({
-    cep: "",
+    razao_social: "",
+    cnpj: "",
+    nome_fantasia: "",
+    email: "",
+    telefone: "",
+    celular: "",
+    endereco: {
+      cep: "",
+      logradouro: "",
+      numero: "",
+      bairro: "",
+      cidade: "",
+      estado: "",
+      complemento: "",
+      geocode: "",
+    },
   });
 
   const atualizarCampo = (campo, valor) => {
-    const novosDados = { ...formulario, [campo]: valor };
-    setFormulario(novosDados);
+    setFormulario({
+      ...formulario,
+      [campo]: valor,
+    });
   };
-
   const buscarCep = () => {
     fetch(`https://viacep.com.br/ws/${formulario.cep}/json/`)
       .then((resposta) => resposta.json())
-      .then((dados) => setEndereco(dados));
+      .then((dados) => setEndereco(dados))
+      .catch((error) => console.log(error));
   };
 
+  const handleSubmit = (evento) => {
+    evento.preventDefault();
+
+    const dados = JSON.stringify(formulario);
+
+    fetch("http://localhost:8080/farmacias", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: dados,
+    })
+      .then(() => console.log("Farmácia cadastrada com sucesso!"))
+      .catch((error) => console.log(error));
+    console.log(dados);
+  };
   return (
     <>
       <Header />
@@ -36,6 +69,10 @@ function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
               <Form.Control
                 type="text"
                 placeholder="Razão Social da farmácia"
+                value={formulario.razao_social}
+                onChange={(evento) =>
+                  atualizarCampo("razao_social", evento.target.value)
+                }
                 required
               />
             </Form.Group>
@@ -45,6 +82,10 @@ function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
               <Form.Control
                 type="text"
                 placeholder="Digite o CNPJ da farmácia"
+                value={formulario.cnpj}
+                onChange={(evento) =>
+                  atualizarCampo("cnpj", evento.target.value)
+                }
                 required
               />
             </Form.Group>
@@ -54,6 +95,10 @@ function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
               <Form.Control
                 type="text"
                 placeholder="Nome fantasia da farmácia"
+                value={formulario.nome_fantasia}
+                onChange={(evento) =>
+                  atualizarCampo("nome_fantasia", evento.target.value)
+                }
                 required
               />
             </Form.Group>
@@ -64,6 +109,10 @@ function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
               <Form.Control
                 type="email"
                 placeholder="Digite o email"
+                value={formulario.email}
+                onChange={(evento) =>
+                  atualizarCampo("email", evento.target.value)
+                }
                 required
               />
             </Form.Group>
@@ -73,6 +122,10 @@ function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
               <Form.Control
                 type="tel"
                 placeholder="Número de Telefone"
+                value={formulario.telefone}
+                onChange={(evento) =>
+                  atualizarCampo("telefone", evento.target.value)
+                }
                 required
               />
             </Form.Group>
@@ -82,6 +135,10 @@ function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
               <Form.Control
                 type="tel"
                 placeholder="Número de Celular"
+                value={formulario.celular}
+                onChange={(evento) =>
+                  atualizarCampo("celular", evento.target.value)
+                }
                 required
               />
             </Form.Group>
@@ -113,34 +170,74 @@ function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
 
             <Form.Group as={Col} controlId="formGridCidade">
               <Form.Label>Cidade</Form.Label>
-              <Form.Control type="text" value={endereco?.localidade} required />
+              <Form.Control
+                type="text"
+                value={endereco?.localidade}
+                onChange={(evento) =>
+                  atualizarCampo("cidade", evento.target.value)
+                }
+                required
+              />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridEstado">
               <Form.Label>Estado</Form.Label>
-              <Form.Control type="text" value={endereco?.uf} required />
+              <Form.Control
+                type="text"
+                value={endereco?.uf}
+                onChange={(evento) => atualizarCampo("uf", evento.target.value)}
+                required
+              />
             </Form.Group>
           </Row>
 
           <Form.Group className="mb-3" controlId="formGridAddress1">
             <Form.Label>Logradouro/Endereço</Form.Label>
-            <Form.Control value={endereco?.logradouro} required />
+            <Form.Control
+              value={endereco?.logradouro}
+              onChange={(evento) =>
+                atualizarCampo("logradouro", evento.target.value)
+              }
+              required
+            />
           </Form.Group>
 
           <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridNum">
               <Form.Label>Numero</Form.Label>
-              <Form.Control type="number" placeholder="Número" required />
+              <Form.Control
+                type="number"
+                placeholder="Número"
+                value={formulario.numero}
+                onChange={(evento) =>
+                  atualizarCampo("numero", evento.target.value)
+                }
+                required
+              />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridBairro">
               <Form.Label>Bairro</Form.Label>
-              <Form.Control type="text" value={endereco?.bairro} required />
+              <Form.Control
+                type="text"
+                value={endereco?.bairro}
+                onChange={(evento) =>
+                  atualizarCampo("bairro", evento.target.value)
+                }
+                required
+              />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridCompl">
               <Form.Label>Complemento</Form.Label>
-              <Form.Control type="text" placeholder="N° Sala/Apto/Prox/Etc." />
+              <Form.Control
+                type="text"
+                placeholder="N° Sala/Apto/Prox/Etc."
+                value={formulario.complemento}
+                onChange={(evento) =>
+                  atualizarCampo("complemento", evento.target.value)
+                }
+              />
             </Form.Group>
           </Row>
 
