@@ -12,10 +12,10 @@
       "logradouro": "Rua dos Remédios",
       "numero": "123",
       "bairro": "Centro",
-      "cidade": "Cidade Nova",
-      "estado": "SP",
+      "cidade": "Florianópolis",
+      "estado": "SC",
       "complemento": "Sala 1",
-      "geocode": [48.85, 2.3522]
+      "geocode": [-27.598, -48.558]
     },
     {
       "id": 2,
@@ -29,10 +29,10 @@
       "logradouro": "Avenida dos Medicamentos",
       "numero": "456",
       "bairro": "Jardim das Flores",
-      "cidade": "Cidade Velha",
-      "estado": "RJ",
+      "cidade": "Florianópolis",
+      "estado": "SC",
       "complemento": "",
-      "geocode": [48.855, 2.34]
+      "geocode": [-27.59, -48.55]
     },
     {
       "id": 3,
@@ -46,10 +46,10 @@
       "logradouro": "Praça dos Remédios",
       "numero": "789",
       "bairro": "Vila Industrial",
-      "cidade": "Cidade do Futuro",
-      "estado": "MG",
+      "cidade": "Florianópolis",
+      "estado": "SC",
       "complemento": "Loja 2",
-      "geocode": [48.86, 2.3522]
+      "geocode": [-27.59, -48.558]
     }
   ],
   "medicamentos": [
