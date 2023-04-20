@@ -13,16 +13,14 @@ function CadastroFarm() {
     email: "",
     telefone: "",
     celular: "",
-    endereco: {
-      cep: "",
-      logradouro: "",
-      numero: "",
-      bairro: "",
-      cidade: "",
-      estado: "",
-      complemento: "",
-      geocode: "",
-    },
+    cep: "",
+    logradouro: "",
+    numero: "",
+    bairro: "",
+    cidade: "",
+    estado: "",
+    complemento: "",
+    geocode: "",
   });
 
   const atualizarCampo = (campo, valor) => {
@@ -52,7 +50,7 @@ function CadastroFarm() {
     })
       .then(() => console.log("Farmácia cadastrada com sucesso!"))
       .catch((error) => console.log(error));
-    console.log(dados);
+    console.log(endereco);
   };
   return (
     <>

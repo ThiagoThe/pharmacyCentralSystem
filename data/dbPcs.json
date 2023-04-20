@@ -8,16 +8,14 @@
       "email": "farmaciacentral@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
-      "endereco": {
-        "cep": "00000-000",
-        "logradouro": "Rua dos Remédios",
-        "numero": "123",
-        "bairro": "Centro",
-        "cidade": "Cidade Nova",
-        "estado": "SP",
-        "complemento": "Sala 1",
-        "geocode": [48.85, 2.3522]
-      }
+      "cep": "00000-000",
+      "logradouro": "Rua dos Remédios",
+      "numero": "123",
+      "bairro": "Centro",
+      "cidade": "Cidade Nova",
+      "estado": "SP",
+      "complemento": "Sala 1",
+      "geocode": [48.85, 2.3522]
     },
     {
       "id": 2,
@@ -27,16 +25,14 @@
       "email": "farmaciapopular@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
-      "endereco": {
-        "cep": "11111-111",
-        "logradouro": "Avenida dos Medicamentos",
-        "numero": "456",
-        "bairro": "Jardim das Flores",
-        "cidade": "Cidade Velha",
-        "estado": "RJ",
-        "complemento": "",
-        "geocode": [48.855, 2.34]
-      }
+      "cep": "11111-111",
+      "logradouro": "Avenida dos Medicamentos",
+      "numero": "456",
+      "bairro": "Jardim das Flores",
+      "cidade": "Cidade Velha",
+      "estado": "RJ",
+      "complemento": "",
+      "geocode": [48.855, 2.34]
     },
     {
       "id": 3,
@@ -46,16 +42,14 @@
       "email": "drogariadagente@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
-      "endereco": {
-        "cep": "22222-222",
-        "logradouro": "Praça dos Remédios",
-        "numero": "789",
-        "bairro": "Vila Industrial",
-        "cidade": "Cidade do Futuro",
-        "estado": "MG",
-        "complemento": "Loja 2",
-        "geocode": [48.86, 2.3522]
-      }
+      "cep": "22222-222",
+      "logradouro": "Praça dos Remédios",
+      "numero": "789",
+      "bairro": "Vila Industrial",
+      "cidade": "Cidade do Futuro",
+      "estado": "MG",
+      "complemento": "Loja 2",
+      "geocode": [48.86, 2.3522]
     }
   ],
   "medicamentos": [

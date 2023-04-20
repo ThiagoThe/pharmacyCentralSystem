@@ -22,8 +22,8 @@ export function TableFarm({ farmacia }) {
           <tr>
             <td>{farmacia.id}</td>
             <td>{farmacia.razao_social}</td>
-            <td>{farmacia.endereco.cidade}</td>
-            <td>{farmacia.endereco.estado}</td>
+            <td>{farmacia.cidade}</td>
+            <td>{farmacia.estado}</td>
 
             <Button variant="info" onClick={handleShow}>
               Info
@@ -36,7 +36,7 @@ export function TableFarm({ farmacia }) {
           <Modal.Title>{farmacia.razao_social}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Nome fantasia: {farmacia.razao_socialnome_fantasia}
+          Nome fantasia: {farmacia.nome_fantasia}
           <br />
           CNPJ: {farmacia.cnpj}
           <br />
@@ -46,19 +46,19 @@ export function TableFarm({ farmacia }) {
           <br />
           Celular: {farmacia.celular}
           <br />
-          CEP: {farmacia.endereco.cep}
+          CEP: {farmacia.cep}
           <br />
-          Cidade: {farmacia.endereco.cidade}
+          Cidade: {farmacia.cidade}
           <br />
-          Estado: {farmacia.endereco.estado}
+          Estado: {farmacia.estado}
           <br />
-          Endereço: {farmacia.endereco.logradouro}
+          Endereço: {farmacia.logradouro}
           <br />
-          Numero: {farmacia.endereco.numero}
+          Numero: {farmacia.numero}
           <br />
-          Bairro: {farmacia.endereco.estado}
+          Bairro: {farmacia.estado}
           <br />
-          Complemento: {farmacia.endereco.complemento}
+          Complemento: {farmacia.complemento}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

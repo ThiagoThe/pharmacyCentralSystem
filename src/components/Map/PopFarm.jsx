@@ -15,19 +15,19 @@ export const PopFarm = ({ farmacia }) => {
       <br />
       Telefone: {farmacia.telefone}
       <br />
-      CEP: {farmacia.endereco.cep}
+      CEP: {farmacia.cep}
       <br />
-      Cidade: {farmacia.endereco.cidade}
+      Cidade: {farmacia.cidade}
       <br />
-      Estado: {farmacia.endereco.estado}
+      Estado: {farmacia.estado}
       <br />
-      Endereço: {farmacia.endereco.logradouro}
+      Endereço: {farmacia.logradouro}
       <br />
-      Numero: {farmacia.endereco.numero}
+      Numero: {farmacia.numero}
       <br />
-      Bairro: {farmacia.endereco.bairro}
+      Bairro: {farmacia.bairro}
       <br />
-      Complemento: {farmacia.endereco.complemento}
+      Complemento: {farmacia.complemento}
     </div>
   );
 };
