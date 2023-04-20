@@ -2,23 +2,41 @@ import React from "react";
 import { useState } from "react";
 import { Header } from "../components/Header/Header";
 import { Container, Button, Col, Form, Row, InputGroup } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
-function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
-  const [endereco, setEndereco] = useState();
-
-  const [formulario, setFormulario] = useState({
-    cep: "",
-  });
-
-  const atualizarCampo = (campo, valor) => {
-    const novosDados = { ...formulario, [campo]: valor };
-    setFormulario(novosDados);
-  };
-
+function CadastroFarm() {
   const buscarCep = () => {
     fetch(`https://viacep.com.br/ws/${formulario.cep}/json/`)
       .then((resposta) => resposta.json())
-      .then((dados) => setEndereco(dados));
+      .then((dados) => setEndereco(dados))
+      .catch((error) => console.log(error));
+  };
+
+  const { register, handleSubmit } = useForm();
+
+  const salvarFarm = (informacoes) => {
+    const dados = JSON.stringify(informacoes);
+
+    fetch("http://localhost:8080/farmacias", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: dados,
+    })
+      .then(() => console.log("Farmácia cadastrada com sucesso!"))
+      .catch((error) => console.log(error));
+  };
+
+  const [endereco, setEndereco] = useState();
+
+  const [formulario, setFormulario] = useState({});
+
+  const atualizarCampo = (campo, valor) => {
+    setFormulario({
+      ...formulario,
+      [campo]: valor,
+    });
   };
 
   return (
@@ -29,60 +47,66 @@ function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
           <h2>Cadastro de nova farmácia</h2>
         </Row>
 
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit(salvarFarm)}>
           <Row className="mb-3">
-            <Form.Group className="mb-3" controlId="formGridRazao">
+            <Form.Group className="mb-3">
               <Form.Label>Razão Social</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Razão Social da farmácia"
-                required
+                id="razao_social"
+                {...register("razao_social", { required: true })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridCnpj">
+            <Form.Group as={Col}>
               <Form.Label>CNPJ</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Digite o CNPJ da farmácia"
-                required
+                id="cnpj"
+                {...register("cnpj", { required: true })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridFanName">
+            <Form.Group as={Col}>
               <Form.Label>Nome Fantasia</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Nome fantasia da farmácia"
-                required
+                id="nome_fantasia"
+                {...register("nome_fantasia", { required: true })}
               />
             </Form.Group>
           </Row>
           <Row className="mb-4">
-            <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Group as={Col}>
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Digite o email"
-                required
+                id="email"
+                {...register("email", { required: true })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridTel">
+            <Form.Group as={Col}>
               <Form.Label>Telefone</Form.Label>
               <Form.Control
                 type="tel"
                 placeholder="Número de Telefone"
-                required
+                id="telefone"
+                {...register("telefone", { required: true })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridCel">
+            <Form.Group as={Col}>
               <Form.Label>Celular</Form.Label>
               <Form.Control
                 type="tel"
                 placeholder="Número de Celular"
-                required
+                id="celular"
+                {...register("celular", { required: true })}
               />
             </Form.Group>
           </Row>
@@ -94,15 +118,21 @@ function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
           </Row>
 
           <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridCep">
+            <Form.Group as={Col}>
               <Form.Label>CEP</Form.Label>
               <InputGroup>
                 <Form.Control
+                  id="cep"
+                  {...register("cep", {
+                    required: "O campo precisa ter 8 numeros sem traço",
+                    maxLength: 8,
+                    minLength: 8,
+                  })}
                   value={formulario.cep}
                   onChange={(evento) =>
                     atualizarCampo("cep", evento.target.value)
                   }
-                  required
+                  placeholder="digite o CEP (somente números) e clique em buscar"
                 />
 
                 <Button variant="primary" onClick={buscarCep}>
@@ -111,36 +141,65 @@ function CadastroFarm({ novaFarmacia, setNovaFarmacia, handleSubmit }) {
               </InputGroup>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridCidade">
+            <Form.Group as={Col}>
               <Form.Label>Cidade</Form.Label>
-              <Form.Control type="text" value={endereco?.localidade} required />
+              <Form.Control
+                type="text"
+                value={endereco?.localidade}
+                id="cidade"
+                {...register("cidade", { required: true })}
+              />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridEstado">
+            <Form.Group as={Col}>
               <Form.Label>Estado</Form.Label>
-              <Form.Control type="text" value={endereco?.uf} required />
+              <Form.Control
+                type="text"
+                value={endereco?.uf}
+                id="estado"
+                {...register("estado", { required: true })}
+              />
             </Form.Group>
           </Row>
 
-          <Form.Group className="mb-3" controlId="formGridAddress1">
+          <Form.Group className="mb-3">
             <Form.Label>Logradouro/Endereço</Form.Label>
-            <Form.Control value={endereco?.logradouro} required />
+            <Form.Control
+              value={endereco?.logradouro}
+              id="logradouro"
+              {...register("logradouro", { required: true })}
+            />
           </Form.Group>
 
           <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridNum">
+            <Form.Group as={Col}>
               <Form.Label>Numero</Form.Label>
-              <Form.Control type="number" placeholder="Número" required />
+              <Form.Control
+                type="number"
+                placeholder="Número"
+                id="numero"
+                {...register("numero", { required: true })}
+              />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridBairro">
+            <Form.Group as={Col}>
               <Form.Label>Bairro</Form.Label>
-              <Form.Control type="text" value={endereco?.bairro} required />
+              <Form.Control
+                type="text"
+                value={endereco?.bairro}
+                id="bairro"
+                {...register("bairro", { required: true })}
+              />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridCompl">
+            <Form.Group as={Col}>
               <Form.Label>Complemento</Form.Label>
-              <Form.Control type="text" placeholder="N° Sala/Apto/Prox/Etc." />
+              <Form.Control
+                type="text"
+                placeholder="N° Sala/Apto/Prox/Etc."
+                id="complemento"
+                {...register("complemento", { required: false })}
+              />
             </Form.Group>
           </Row>
 

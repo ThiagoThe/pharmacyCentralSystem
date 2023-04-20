@@ -15,7 +15,7 @@ export const Map = () => {
       />
       <MarkerClusterGroup>
         {geo.farmacias.map((farmacia) => (
-          <Marker position={farmacia.endereco.geocode} key={farmacia.id}>
+          <Marker position={farmacia.geocode} key={farmacia.id}>
             <Popup>
               <PopFarm farmacia={farmacia} />
             </Popup>
