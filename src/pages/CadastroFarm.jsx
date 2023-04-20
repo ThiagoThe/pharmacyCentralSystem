@@ -22,7 +22,7 @@ function CadastroFarm() {
       .catch((error) => console.log(error));
   };
 
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, reset } = useForm();
 
   const salvarFarm = (informacoes) => {
     console.log(informacoes);
@@ -37,6 +37,8 @@ function CadastroFarm() {
     })
       .then(() => console.log("Farmácia cadastrada com sucesso!"))
       .catch((error) => console.log(error));
+
+    reset();
   };
 
   const [formulario, setFormulario] = useState({});

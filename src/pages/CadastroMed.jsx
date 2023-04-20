@@ -4,7 +4,7 @@ import { Button, Col, Form, Row, Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 function CadastroMed() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const salvarMed = (medicamentos) => {
     const dados = JSON.stringify(medicamentos);
@@ -18,6 +18,8 @@ function CadastroMed() {
     })
       .then(() => console.log("Farmácia cadastrada com sucesso!"))
       .catch((error) => console.log(error));
+
+    reset();
   };
 
   return (
