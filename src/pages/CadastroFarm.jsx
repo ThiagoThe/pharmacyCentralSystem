@@ -8,13 +8,24 @@ function CadastroFarm() {
   const buscarCep = () => {
     fetch(`https://viacep.com.br/ws/${formulario.cep}/json/`)
       .then((resposta) => resposta.json())
-      .then((dados) => setEndereco(dados))
+      .then((dados) => {
+        setValue("endereco", {
+          cidade: dados.localidade,
+          estado: dados.uf,
+          logradouro: dados.logradouro,
+          bairro: dados.bairro,
+          numero: dados.numero,
+          complemento: dados.complemento,
+          cep: dados.cep,
+        });
+      })
       .catch((error) => console.log(error));
   };
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   const salvarFarm = (informacoes) => {
+    console.log(informacoes);
     const dados = JSON.stringify(informacoes);
 
     fetch("http://localhost:8080/farmacias", {
@@ -27,8 +38,6 @@ function CadastroFarm() {
       .then(() => console.log("Farmácia cadastrada com sucesso!"))
       .catch((error) => console.log(error));
   };
-
-  const [endereco, setEndereco] = useState();
 
   const [formulario, setFormulario] = useState({});
 
@@ -122,13 +131,6 @@ function CadastroFarm() {
               <Form.Label>CEP</Form.Label>
               <InputGroup>
                 <Form.Control
-                  id="cep"
-                  {...register("cep", {
-                    required: "O campo precisa ter 8 numeros sem traço",
-                    maxLength: 8,
-                    minLength: 8,
-                  })}
-                  value={formulario.cep}
                   onChange={(evento) =>
                     atualizarCampo("cep", evento.target.value)
                   }
@@ -145,9 +147,8 @@ function CadastroFarm() {
               <Form.Label>Cidade</Form.Label>
               <Form.Control
                 type="text"
-                value={endereco?.localidade}
                 id="cidade"
-                {...register("cidade", { required: true })}
+                {...register("endereco.cidade", { required: true })}
               />
             </Form.Group>
 
@@ -155,9 +156,8 @@ function CadastroFarm() {
               <Form.Label>Estado</Form.Label>
               <Form.Control
                 type="text"
-                value={endereco?.uf}
                 id="estado"
-                {...register("estado", { required: true })}
+                {...register("endereco.estado", { required: true })}
               />
             </Form.Group>
           </Row>
@@ -165,9 +165,8 @@ function CadastroFarm() {
           <Form.Group className="mb-3">
             <Form.Label>Logradouro/Endereço</Form.Label>
             <Form.Control
-              value={endereco?.logradouro}
               id="logradouro"
-              {...register("logradouro", { required: true })}
+              {...register("endereco.logradouro", { required: true })}
             />
           </Form.Group>
 
@@ -178,7 +177,7 @@ function CadastroFarm() {
                 type="number"
                 placeholder="Número"
                 id="numero"
-                {...register("numero", { required: true })}
+                {...register("endereco.numero", { required: true })}
               />
             </Form.Group>
 
@@ -186,9 +185,8 @@ function CadastroFarm() {
               <Form.Label>Bairro</Form.Label>
               <Form.Control
                 type="text"
-                value={endereco?.bairro}
                 id="bairro"
-                {...register("bairro", { required: true })}
+                {...register("endereco.bairro", { required: true })}
               />
             </Form.Group>
 
@@ -198,7 +196,7 @@ function CadastroFarm() {
                 type="text"
                 placeholder="N° Sala/Apto/Prox/Etc."
                 id="complemento"
-                {...register("complemento", { required: false })}
+                {...register("endereco.complemento", { required: false })}
               />
             </Form.Group>
           </Row>
