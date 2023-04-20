@@ -123,11 +123,16 @@ function CadastroFarm() {
               <InputGroup>
                 <Form.Control
                   id="cep"
-                  {...register("cep", { required: true })}
+                  {...register("cep", {
+                    required: "O campo precisa ter 8 numeros sem traço",
+                    maxLength: 8,
+                    minLength: 8,
+                  })}
                   value={formulario.cep}
                   onChange={(evento) =>
                     atualizarCampo("cep", evento.target.value)
                   }
+                  placeholder="digite o CEP (somente números) e clique em buscar"
                 />
 
                 <Button variant="primary" onClick={buscarCep}>
