@@ -1,12 +1,25 @@
 import React from "react";
 import { Header } from "../components/Header/Header";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import { Container } from "react-bootstrap";
+import { Button, Col, Form, Row, Container } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
 function CadastroMed() {
+  const { register, handleSubmit } = useForm();
+
+  const salvarMed = (medicamentos) => {
+    const dados = JSON.stringify(medicamentos);
+
+    fetch("http://localhost:8080/medicamentos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: dados,
+    })
+      .then(() => console.log("Farmácia cadastrada com sucesso!"))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <Header />
@@ -15,63 +28,74 @@ function CadastroMed() {
           <h2>Cadastro de medicamentos</h2>
         </Row>
 
-        <Form>
+        <Form onSubmit={handleSubmit(salvarMed)}>
           <Row className="mb-3">
-            <Form.Group className="mb-3" controlId="formGridNomeMed">
+            <Form.Group className="mb-3">
               <Form.Label>Nome do medicamento</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Nome do medicamento"
-                required
+                id="nome"
+                {...register("nome", { required: true })}
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formGridLab">
+            <Form.Group className="mb-3">
               <Form.Label>Nome do Laboratório</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Nome do laboratório"
-                required
+                id="laboratorio"
+                {...register("laboratorio", { required: true })}
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formGridFanDosagem">
+            <Form.Group className="mb-3">
               <Form.Label>Dosagem do medicamento</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Dosagem do medicamento"
-                required
+                id="dosagem"
+                {...register("dosagem", { required: true })}
               />
             </Form.Group>
           </Row>
 
           <Row className="mb-4">
-            <Form.Group className="mb-3" controlId="formGridDescricao">
+            <Form.Group className="mb-3">
               <Form.Label>Descrição do medicamento</Form.Label>
               <Form.Control
                 as="textarea"
                 aria-label=""
                 placeholder="Descrição do medicamento"
+                id="descricao"
+                {...register("descricao", { required: false })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridPreco">
+            <Form.Group as={Col}>
               <Form.Label>Preço unitário</Form.Label>
-              <Form.Control type="text" placeholder="Ex: 10.00" required />
+              <Form.Control
+                type="text"
+                placeholder="Ex: 10.00"
+                id="preco_unitario"
+                {...register("preco_unitario", { required: true })}
+              />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridTipo">
+            <Form.Group as={Col}>
               <Form.Label>Tipo de Medicamento</Form.Label>
-              <Form.Select defaultValue="Escolha..." required>
-                <option>Escolha...</option>
-                <option>Medicamento controlado</option>
-                <option>Medicamento comum</option>
+              <Form.Select id="tipo" {...register("tipo", { required: true })}>
+                <option value="Medicamento controlado">
+                  Medicamento controlado
+                </option>
+                <option value="Medicamento comum">Medicamento comum</option>
               </Form.Select>
             </Form.Group>
           </Row>
 
           <Button variant="primary" type="submit">
-            Adicionar cadastro
+            Adicionar Medicamento
           </Button>
         </Form>
       </Container>
