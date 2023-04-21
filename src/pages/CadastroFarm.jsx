@@ -10,6 +10,7 @@ import {
   Alert,
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import Footer from "../components/Footer/Footer";
 
 function CadastroFarm() {
   // função para buscar o CEP
@@ -287,6 +288,7 @@ function CadastroFarm() {
           </Row>
         </Form>
       </Container>
+      <Footer />
     </>
   );
 }

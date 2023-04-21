@@ -4,6 +4,7 @@ import { Header } from "../components/Header/Header";
 import { Container, Row } from "react-bootstrap";
 import { Map } from "../components/Map/Map";
 import { TableFarm } from "../components/Tables/TableFarm";
+import Footer from "../components/Footer/Footer";
 
 function ListaFarm() {
   const context = useFarm();
@@ -24,6 +25,7 @@ function ListaFarm() {
           ))}
         </Row>
       </Container>
+      <Footer />
     </>
   );
 }

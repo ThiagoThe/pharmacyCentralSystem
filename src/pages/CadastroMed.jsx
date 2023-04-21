@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { Header } from "../components/Header/Header";
 import { Button, Col, Form, Row, Container, Alert } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import Footer from "../components/Footer/Footer";
 
 function CadastroMed() {
   const { register, handleSubmit, reset } = useForm(); //
@@ -136,6 +137,7 @@ function CadastroMed() {
           </Button>
         </Form>
       </Container>
+      <Footer />
     </>
   );
 }
