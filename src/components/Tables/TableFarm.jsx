@@ -22,8 +22,8 @@ export function TableFarm({ farmacia }) {
           <tr>
             <td>{farmacia.id}</td>
             <td>{farmacia.razao_social}</td>
-            <td>{farmacia.cidade}</td>
-            <td>{farmacia.estado}</td>
+            <td>{farmacia.endereco.cidade}</td>
+            <td>{farmacia.endereco.estado}</td>
 
             <Button variant="info" onClick={handleShow}>
               Info

@@ -1,31 +1,43 @@
 import { React } from "react";
+import { Link } from "react-router-dom";
 
 export const PopFarm = ({ farmacia }) => {
   return (
     <div>
-      <h6>{farmacia.razao_social}</h6>
+      <h6 className="text-center">{farmacia.razao_social}</h6>
       <hr />
-      Nome fantasia: {farmacia.nome_fantasia}
+      <strong>CNPJ:</strong> {farmacia.cnpj}
       <br />
-      CNPJ: {farmacia.cnpj}
+      <strong>Nome fantasia:</strong> {farmacia.nome_fantasia}
       <br />
-      Email: {farmacia.email}
+      <strong>Telefone:</strong> {farmacia.telefone}
+      <hr />
+      <strong>Email:</strong>{" "}
+      <Link to={`mailto:${farmacia.email}`}>{farmacia.email}</Link>
+      <hr />
+      <strong>Celular: </strong>
+      <Link
+        to={`https://wa.me/55${farmacia.celular}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {farmacia.celular}
+      </Link>
+      <hr />
+      <strong>Endereço:</strong>
       <br />
-      Telefone: {farmacia.telefone}
+      <strong>CEP:</strong> {farmacia.endereco.cep}
       <br />
-      CEP: {farmacia.endereco.cep}
+      <strong>Logradouro:</strong> {farmacia.endereco.logradouro}{" "}
+      <strong>N°:</strong> {farmacia.endereco.numero}
       <br />
-      Cidade: {farmacia.endereco.cidade}
+      <strong>Bairro:</strong> {farmacia.endereco.bairro}
       <br />
-      Estado: {farmacia.endereco.estado}
+      <strong>Cidade/Uf:</strong> {farmacia.endereco.cidade}
+      {"/"}
+      {farmacia.endereco.estado}
       <br />
-      Endereço: {farmacia.endereco.logradouro}
-      <br />
-      Numero: {farmacia.endereco.numero}
-      <br />
-      Bairro: {farmacia.endereco.bairro}
-      <br />
-      Complemento: {farmacia.endereco.complemento}
+      <strong>Complemento:</strong> {farmacia.endereco.complemento}
     </div>
   );
 };
