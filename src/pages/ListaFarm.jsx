@@ -5,6 +5,7 @@ import { Container, Row } from "react-bootstrap";
 import { Map } from "../components/Map/Map";
 import { TableFarm } from "../components/Tables/TableFarm";
 import Footer from "../components/Footer/Footer";
+import NavSearch from "../components/Search/NavSearch";
 
 function ListaFarm() {
   const context = useFarm();
@@ -12,6 +13,7 @@ function ListaFarm() {
   return (
     <>
       <Header />
+      <NavSearch />
       <Container>
         <Row className="m-5 text-center">
           <h2>Farmácias cadastradas</h2>

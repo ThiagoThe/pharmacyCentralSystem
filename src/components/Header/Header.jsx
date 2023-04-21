@@ -8,7 +8,7 @@ import { Image } from "react-bootstrap";
 export function Header() {
   return (
     <Navbar bg="light" expand="lg">
-      <Container>
+      <Container className="col-lg-9 col-12">
         <Navbar.Brand href="/lista-farmacias">
           <Image src="/img/logoNav.png" width={250}></Image>
         </Navbar.Brand>
