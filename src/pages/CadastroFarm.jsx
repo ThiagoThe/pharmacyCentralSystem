@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import { React, useState } from "react";
 import { Header } from "../components/Header/Header";
 import {
   Container,
@@ -34,13 +33,7 @@ function CadastroFarm() {
   };
 
   // função para salvar os dados do formulário
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   const [cadastroSucesso, setCadastroSucesso] = useState(false); // estado para exibir mensagem de sucesso
 

@@ -1,11 +1,14 @@
-import React from "react";
+import { React, useState } from "react";
 import { Header } from "../components/Header/Header";
-import { Button, Col, Form, Row, Container } from "react-bootstrap";
+import { Button, Col, Form, Row, Container, Alert } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 function CadastroMed() {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm(); //
 
+  const [cadastroSucesso, setCadastroSucesso] = useState(false); // estado para exibir mensagem de sucesso
+
+  // função para salvar os dados do formulário
   const salvarMed = (medicamentos) => {
     const dados = JSON.stringify(medicamentos);
 
@@ -16,7 +19,22 @@ function CadastroMed() {
       },
       body: dados,
     })
-      .then(() => console.log("Farmácia cadastrada com sucesso!"))
+      .then(() => {
+        setCadastroSucesso(true);
+
+        const timer = setTimeout(() => {
+          // função para recarregar a página após 10 segundos
+          window.location.reload();
+        }, 10000);
+
+        const interval = setInterval(() => {
+          // função para limpar o timer caso o usuário navegue para outra página
+          if (timer && document.hidden) {
+            clearTimeout(timer);
+            clearInterval(interval);
+          }
+        }, 1000);
+      })
       .catch((error) => console.log(error));
 
     reset();
@@ -94,6 +112,23 @@ function CadastroMed() {
                 <option value="Medicamento comum">Medicamento comum</option>
               </Form.Select>
             </Form.Group>
+          </Row>
+
+          <Row className="mb-3">
+            {cadastroSucesso && (
+              <Alert variant="success">
+                Medicamento Cadastrado com Sucesso! Clique para
+                <Alert.Link href="/lista-medicamentos">
+                  {" "}
+                  Ir para lista de medicamentos
+                </Alert.Link>{" "}
+                ou para{" "}
+                <Alert.Link href="/cadastro-medicamentos">
+                  {" "}
+                  Cadastrar um Novo Medicamento
+                </Alert.Link>
+              </Alert>
+            )}
           </Row>
 
           <Button variant="primary" type="submit">

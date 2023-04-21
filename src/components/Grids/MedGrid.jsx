@@ -8,7 +8,7 @@ export const MedGrid = () => {
   return (
     <Row xs={1} md={3} className="g-4">
       {context.medicamentos.map((medicamento) => (
-        <Col>
+        <Col key={medicamento.id}>
           <CardMed medicamento={medicamento} />
         </Col>
       ))}

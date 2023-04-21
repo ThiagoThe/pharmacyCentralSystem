@@ -219,6 +219,26 @@
         "longitude": "-48.6146161"
       },
       "id": 11
+    },
+    {
+      "razao_social": "Farmácia Nova Saúde",
+      "cnpj": "14.789.986/001-78",
+      "nome_fantasia": "Farmácia do Trabalhador",
+      "email": "farm@gmail.com",
+      "telefone": "489999-9999",
+      "celular": "489999-99999",
+      "endereco": {
+        "cidade": "Florianópolis",
+        "estado": "SC",
+        "logradouro": "Rua Blides Neves Segui",
+        "bairro": "Coloninha",
+        "numero": "48",
+        "complemento": "de 170/171 ao fim",
+        "cep": "88090-470",
+        "latitude": "-27.5898435",
+        "longitude": "-48.5965629"
+      },
+      "id": 12
     }
   ],
   "medicamentos": [
@@ -302,6 +322,24 @@
       "descricao": "Antidepressivo",
       "tipo": "Medicamento controlado",
       "preco_unitario": 10.7
+    },
+    {
+      "nome": "Penicilina ",
+      "laboratorio": "EuroFarm",
+      "dosagem": "1 ao dia",
+      "descricao": "Antibiótico do grupo dos betalactâmicos  utilizados no tratamento de infecções causadas por bactérias sensíveis.",
+      "preco_unitario": "45.60",
+      "tipo": "Medicamento controlado",
+      "id": 10
+    },
+    {
+      "nome": "Loratadina",
+      "laboratorio": "EMS",
+      "dosagem": "1 ao dia",
+      "descricao": "Antialérgico",
+      "preco_unitario": "10.00",
+      "tipo": "Medicamento comum",
+      "id": 11
     }
   ]
 }
