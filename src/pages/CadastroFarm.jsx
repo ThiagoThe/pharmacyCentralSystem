@@ -17,12 +17,20 @@ function CadastroFarm() {
           numero: dados.numero,
           complemento: dados.complemento,
           cep: dados.cep,
+          latitude: dados.latitude,
+          longitude: dados.longitude,
         });
       })
       .catch((error) => console.log(error));
   };
 
-  const { register, handleSubmit, setValue, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   const salvarFarm = (informacoes) => {
     console.log(informacoes);
@@ -164,7 +172,7 @@ function CadastroFarm() {
             </Form.Group>
           </Row>
 
-          <Form.Group className="mb-3">
+          <Form.Group as={Col}>
             <Form.Label>Logradouro/Endereço</Form.Label>
             <Form.Control
               id="logradouro"
@@ -199,6 +207,30 @@ function CadastroFarm() {
                 placeholder="N° Sala/Apto/Prox/Etc."
                 id="complemento"
                 {...register("endereco.complemento", { required: false })}
+              />
+            </Form.Group>
+          </Row>
+
+          <Row className="mb-3">
+            <Form.Group as={Col}>
+              <Form.Label>Latitude</Form.Label>
+              <Form.Control
+                id="latitude"
+                type="number"
+                {...register("endereco.latitude", {
+                  required: true,
+                })}
+              />
+            </Form.Group>
+
+            <Form.Group as={Col}>
+              <Form.Label>Longitude</Form.Label>
+              <Form.Control
+                id="longitude"
+                type="number"
+                {...register("endereco.longitude", {
+                  required: true,
+                })}
               />
             </Form.Group>
           </Row>

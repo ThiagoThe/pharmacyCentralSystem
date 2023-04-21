@@ -3,6 +3,7 @@ import "leaflet/dist/leaflet.css";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { useFarm } from "../../contexts/farmContext";
 import { PopFarm } from "./PopFarm";
+import L from "leaflet";
 
 export const Map = () => {
   const geo = useFarm();
@@ -19,7 +20,15 @@ export const Map = () => {
       />
       <MarkerClusterGroup>
         {geo.farmacias.map((farmacia) => (
-          <Marker position={farmacia.geocode} key={farmacia.id}>
+          <Marker
+            position={
+              new L.LatLng(
+                farmacia.endereco.latitude,
+                farmacia.endereco.longitude
+              )
+            }
+            key={farmacia.id}
+          >
             <Popup>
               <PopFarm farmacia={farmacia} />
             </Popup>

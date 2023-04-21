@@ -8,14 +8,17 @@
       "email": "farmaciacentral@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
-      "cep": "00000-000",
-      "logradouro": "Rua dos Remédios",
-      "numero": "123",
-      "bairro": "Centro",
-      "cidade": "Florianópolis",
-      "estado": "SC",
-      "complemento": "Sala 1",
-      "geocode": [-27.598, -48.558]
+      "endereco": {
+        "cep": "00000-000",
+        "logradouro": "Rua dos Remédios",
+        "numero": "123",
+        "bairro": "Centro",
+        "cidade": "Florianópolis",
+        "estado": "SC",
+        "complemento": "Sala 1",
+        "latitude": -27.598,
+        "longitude": -48.558
+      }
     },
     {
       "id": 2,
@@ -25,14 +28,17 @@
       "email": "farmaciapopular@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
-      "cep": "11111-111",
-      "logradouro": "Avenida dos Medicamentos",
-      "numero": "456",
-      "bairro": "Jardim das Flores",
-      "cidade": "Florianópolis",
-      "estado": "SC",
-      "complemento": "",
-      "geocode": [-27.59, -48.55]
+      "endereco": {
+        "cep": "11111-111",
+        "logradouro": "Avenida dos Medicamentos",
+        "numero": "456",
+        "bairro": "Jardim das Flores",
+        "cidade": "Florianópolis",
+        "estado": "SC",
+        "complemento": "",
+        "latitude": -27.59,
+        "longitude": -48.55
+      }
     },
     {
       "id": 3,
@@ -42,14 +48,37 @@
       "email": "drogariadagente@exemplo.com",
       "telefone": "(00) 0000-0000",
       "celular": "(00) 00000-0000",
-      "cep": "22222-222",
-      "logradouro": "Praça dos Remédios",
-      "numero": "789",
-      "bairro": "Vila Industrial",
-      "cidade": "Florianópolis",
-      "estado": "SC",
-      "complemento": "Loja 2",
-      "geocode": [-27.59, -48.558]
+      "endereco": {
+        "cep": "22222-222",
+        "logradouro": "Praça dos Remédios",
+        "numero": "789",
+        "bairro": "Vila Industrial",
+        "cidade": "Florianópolis",
+        "estado": "SC",
+        "complemento": "Loja 2",
+        "latitude": -27.59,
+        "longitude": -48.558
+      }
+    },
+    {
+      "razao_social": "Farmacia do Povo",
+      "cnpj": "12.006.456/0001-69",
+      "nome_fantasia": "A farmácia",
+      "email": "farm@gmail.com",
+      "telefone": "489999-9999",
+      "celular": "489999-99999",
+      "endereco": {
+        "cidade": "Lages",
+        "estado": "SC",
+        "logradouro": "Rua Nelson Carneiro Borges",
+        "bairro": "São Luiz",
+        "numero": "220",
+        "complemento": "até 499/500",
+        "cep": "88512-200",
+        "latitude": "-27",
+        "longitude": "-48"
+      },
+      "id": 4
     }
   ],
   "medicamentos": [
