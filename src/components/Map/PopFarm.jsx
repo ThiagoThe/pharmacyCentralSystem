@@ -4,9 +4,7 @@ export const PopFarm = ({ farmacia }) => {
   return (
     <div>
       <h6>{farmacia.razao_social}</h6>
-      <br />
       <hr />
-      <br />
       Nome fantasia: {farmacia.nome_fantasia}
       <br />
       CNPJ: {farmacia.cnpj}
@@ -15,19 +13,19 @@ export const PopFarm = ({ farmacia }) => {
       <br />
       Telefone: {farmacia.telefone}
       <br />
-      CEP: {farmacia.cep}
+      CEP: {farmacia.endereco.cep}
       <br />
-      Cidade: {farmacia.cidade}
+      Cidade: {farmacia.endereco.cidade}
       <br />
-      Estado: {farmacia.estado}
+      Estado: {farmacia.endereco.estado}
       <br />
-      Endereço: {farmacia.logradouro}
+      Endereço: {farmacia.endereco.logradouro}
       <br />
-      Numero: {farmacia.numero}
+      Numero: {farmacia.endereco.numero}
       <br />
-      Bairro: {farmacia.bairro}
+      Bairro: {farmacia.endereco.bairro}
       <br />
-      Complemento: {farmacia.complemento}
+      Complemento: {farmacia.endereco.complemento}
     </div>
   );
 };
