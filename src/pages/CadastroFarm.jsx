@@ -1,7 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { Header } from "../components/Header/Header";
-import { Container, Button, Col, Form, Row, InputGroup } from "react-bootstrap";
+import {
+  Container,
+  Button,
+  Col,
+  Form,
+  Row,
+  InputGroup,
+  Alert,
+} from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 function CadastroFarm() {
@@ -32,8 +40,9 @@ function CadastroFarm() {
     formState: { errors },
   } = useForm();
 
+  const [cadastroSucesso, setCadastroSucesso] = useState(false);
+
   const salvarFarm = (informacoes) => {
-    console.log(informacoes);
     const dados = JSON.stringify(informacoes);
 
     fetch("http://localhost:8080/farmacias", {
@@ -43,10 +52,8 @@ function CadastroFarm() {
       },
       body: dados,
     })
-      .then(() => console.log("Farmácia cadastrada com sucesso!"))
+      .then(() => setCadastroSucesso(true))
       .catch((error) => console.log(error));
-
-    reset();
   };
 
   const [formulario, setFormulario] = useState({});
@@ -65,6 +72,21 @@ function CadastroFarm() {
         <Row className="mb-5 text-center">
           <h2>Cadastro de nova farmácia</h2>
         </Row>
+
+        {cadastroSucesso && (
+          <Alert key="" variant="success">
+            Farmácia Cadastrada com Sucesso! Clique para
+            <Alert.Link href="/lista-farmacias">
+              {" "}
+              Ir para lista de farmácias
+            </Alert.Link>{" "}
+            ou para{" "}
+            <Alert.Link href="/cadastro-farmacias">
+              {" "}
+              Cadastrar uma nova farmácia
+            </Alert.Link>
+          </Alert>
+        )}
 
         <Form onSubmit={handleSubmit(salvarFarm)}>
           <Row className="mb-3">
@@ -141,6 +163,7 @@ function CadastroFarm() {
               <Form.Label>CEP</Form.Label>
               <InputGroup>
                 <Form.Control
+                  pattern="[0-9]{8}"
                   onChange={(evento) =>
                     atualizarCampo("cep", evento.target.value)
                   }
@@ -216,9 +239,12 @@ function CadastroFarm() {
               <Form.Label>Latitude</Form.Label>
               <Form.Control
                 id="latitude"
-                type="number"
                 {...register("endereco.latitude", {
                   required: true,
+                  pattern: {
+                    value: /[+-]?([0-9]*[.])?[0-9]+$/,
+                    message: "digite a latitude com ponto",
+                  },
                 })}
               />
             </Form.Group>
@@ -227,9 +253,12 @@ function CadastroFarm() {
               <Form.Label>Longitude</Form.Label>
               <Form.Control
                 id="longitude"
-                type="number"
                 {...register("endereco.longitude", {
                   required: true,
+                  pattern: {
+                    value: /[+-]?([0-9]*[.])?[0-9]+$/,
+                    message: "digite a longitude com ponto",
+                  },
                 })}
               />
             </Form.Group>

@@ -68,17 +68,77 @@
       "telefone": "489999-9999",
       "celular": "489999-99999",
       "endereco": {
-        "cidade": "Lages",
+        "cidade": "Itajai",
         "estado": "SC",
-        "logradouro": "Rua Nelson Carneiro Borges",
-        "bairro": "São Luiz",
+        "logradouro": "Rua João Magalhães",
+        "bairro": "Cordeiros",
         "numero": "220",
         "complemento": "até 499/500",
-        "cep": "88512-200",
-        "latitude": "-27",
-        "longitude": "-48"
+        "cep": "88310-080",
+        "latitude": -26.8906231,
+        "longitude": -48.6920156
       },
       "id": 4
+    },
+    {
+      "razao_social": "Farmácia Registrada Canon",
+      "cnpj": "12.006.459/0001-99",
+      "nome_fantasia": "Farmácia Saúde Perfeita",
+      "email": "farm2@farm.com",
+      "telefone": "4933225698",
+      "celular": "49988635989",
+      "endereco": {
+        "cidade": "Lages",
+        "estado": "SC",
+        "logradouro": "Rua Jorge Neves Vieira",
+        "bairro": "São Luiz",
+        "numero": "100",
+        "complemento": "na esquina",
+        "cep": "88512-310",
+        "latitude": "-27.8307644",
+        "longitude": "-50.3411329"
+      },
+      "id": 5
+    },
+    {
+      "razao_social": "Farmácia Remédio Certo",
+      "cnpj": "12.120.365/0001-00",
+      "nome_fantasia": "Farmácia Remédio Certo",
+      "email": "farm3@farm.com",
+      "telefone": "4933456596",
+      "celular": "49988659630",
+      "endereco": {
+        "cidade": "Lages",
+        "estado": "SC",
+        "logradouro": "Avenida Marechal Floriano",
+        "bairro": "Centro",
+        "numero": "15",
+        "complemento": "frente havan",
+        "cep": "88501-103",
+        "latitude": "-27.8171307",
+        "longitude": "-50.3319869"
+      },
+      "id": 6
+    },
+    {
+      "razao_social": "Farmácia Irmãos",
+      "cnpj": "31.009.006/0001-87",
+      "nome_fantasia": "Farmácia Remédio Barato",
+      "email": "farm4@farm.com",
+      "telefone": "4733225899",
+      "celular": "47999786532",
+      "endereco": {
+        "cidade": "Itajaí",
+        "estado": "SC",
+        "logradouro": "Avenida Coronel Marcos Konder",
+        "bairro": "Centro",
+        "numero": "900",
+        "complemento": "av. principal",
+        "cep": "88301-300",
+        "latitude": "-26.9065189",
+        "longitude": "-48.6621897"
+      },
+      "id": 7
     }
   ],
   "medicamentos": [
