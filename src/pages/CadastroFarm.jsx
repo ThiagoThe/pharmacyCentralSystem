@@ -13,6 +13,7 @@ import {
 import { useForm } from "react-hook-form";
 
 function CadastroFarm() {
+  // função para buscar o CEP
   const buscarCep = () => {
     fetch(`https://viacep.com.br/ws/${formulario.cep}/json/`)
       .then((resposta) => resposta.json())
@@ -32,6 +33,7 @@ function CadastroFarm() {
       .catch((error) => console.log(error));
   };
 
+  // função para salvar os dados do formulário
   const {
     register,
     handleSubmit,
@@ -40,8 +42,9 @@ function CadastroFarm() {
     formState: { errors },
   } = useForm();
 
-  const [cadastroSucesso, setCadastroSucesso] = useState(false);
+  const [cadastroSucesso, setCadastroSucesso] = useState(false); // estado para exibir mensagem de sucesso
 
+  // função para salvar os dados do formulário
   const salvarFarm = (informacoes) => {
     const dados = JSON.stringify(informacoes);
 
@@ -52,12 +55,28 @@ function CadastroFarm() {
       },
       body: dados,
     })
-      .then(() => setCadastroSucesso(true))
+      .then(() => {
+        setCadastroSucesso(true);
+
+        const timer = setTimeout(() => {
+          // função para recarregar a página após 10 segundos
+          window.location.reload();
+        }, 10000);
+
+        const interval = setInterval(() => {
+          // função para limpar o timer caso o usuário navegue para outra página
+          if (timer && document.hidden) {
+            clearTimeout(timer);
+            clearInterval(interval);
+          }
+        }, 1000);
+      })
       .catch((error) => console.log(error));
   };
 
-  const [formulario, setFormulario] = useState({});
+  const [formulario, setFormulario] = useState({}); // estado para armazenar os dados do formulário
 
+  // função para atualizar o estado do formulário
   const atualizarCampo = (campo, valor) => {
     setFormulario({
       ...formulario,
@@ -72,21 +91,6 @@ function CadastroFarm() {
         <Row className="mb-5 text-center">
           <h2>Cadastro de nova farmácia</h2>
         </Row>
-
-        {cadastroSucesso && (
-          <Alert key="" variant="success">
-            Farmácia Cadastrada com Sucesso! Clique para
-            <Alert.Link href="/lista-farmacias">
-              {" "}
-              Ir para lista de farmácias
-            </Alert.Link>{" "}
-            ou para{" "}
-            <Alert.Link href="/cadastro-farmacias">
-              {" "}
-              Cadastrar uma nova farmácia
-            </Alert.Link>
-          </Alert>
-        )}
 
         <Form onSubmit={handleSubmit(salvarFarm)}>
           <Row className="mb-3">
@@ -104,10 +108,10 @@ function CadastroFarm() {
               <Form.Label>CNPJ</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Digite o CNPJ da farmácia"
+                placeholder="Ex: 00.000.000/0001-00"
                 id="cnpj"
                 {...register("cnpj", { required: true })}
-              />
+              />{" "}
             </Form.Group>
 
             <Form.Group as={Col}>
@@ -135,7 +139,7 @@ function CadastroFarm() {
               <Form.Label>Telefone</Form.Label>
               <Form.Control
                 type="tel"
-                placeholder="Número de Telefone"
+                placeholder="Ex:(DDD)3333-3333"
                 id="telefone"
                 {...register("telefone", { required: true })}
               />
@@ -145,7 +149,7 @@ function CadastroFarm() {
               <Form.Label>Celular</Form.Label>
               <Form.Control
                 type="tel"
-                placeholder="Número de Celular"
+                placeholder="Ex:(DDD)99999-9999"
                 id="celular"
                 {...register("celular", { required: true })}
               />
@@ -264,9 +268,30 @@ function CadastroFarm() {
             </Form.Group>
           </Row>
 
-          <Button variant="primary" type="submit">
-            Cadastrar Farmácia
-          </Button>
+          <Row className="mb-3">
+            {cadastroSucesso && (
+              <Alert variant="success">
+                Farmácia Cadastrada com Sucesso! Clique para
+                <Alert.Link href="/lista-farmacias">
+                  {" "}
+                  Ir para lista de farmácias
+                </Alert.Link>{" "}
+                ou para{" "}
+                <Alert.Link href="/cadastro-farmacias">
+                  {" "}
+                  Cadastrar uma nova farmácia
+                </Alert.Link>
+              </Alert>
+            )}
+          </Row>
+
+          <Row className="mb-3">
+            <Col>
+              <Button variant="primary" type="submit">
+                Cadastrar Farmácia
+              </Button>
+            </Col>
+          </Row>
         </Form>
       </Container>
     </>

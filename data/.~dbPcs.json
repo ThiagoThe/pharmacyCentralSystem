@@ -219,6 +219,26 @@
         "longitude": "-48.6146161"
       },
       "id": 11
+    },
+    {
+      "razao_social": "Farmácia Nova Saúde",
+      "cnpj": "14.789.986/001-78",
+      "nome_fantasia": "Farmácia do Trabalhador",
+      "email": "farm@gmail.com",
+      "telefone": "489999-9999",
+      "celular": "489999-99999",
+      "endereco": {
+        "cidade": "Florianópolis",
+        "estado": "SC",
+        "logradouro": "Rua Blides Neves Segui",
+        "bairro": "Coloninha",
+        "numero": "48",
+        "complemento": "de 170/171 ao fim",
+        "cep": "88090-470",
+        "latitude": "-27.5898435",
+        "longitude": "-48.5965629"
+      },
+      "id": 12
     }
   ],
   "medicamentos": [
