@@ -10,7 +10,6 @@ export const useMed = () => {
 
 export const MedProvider = ({ children }) => {
   const [medicamentos, setMedicamentos] = useState([]);
-
   useEffect(() => {
     axios
       .get("http://localhost:8080/medicamentos")

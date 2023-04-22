@@ -12,6 +12,7 @@ function ListaFarm() {
   return (
     <>
       <Header />
+
       <Container>
         <Row className="m-5 text-center">
           <h2>Farmácias cadastradas</h2>
