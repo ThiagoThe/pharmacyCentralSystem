@@ -10,14 +10,6 @@ export function TableFarm({ farmacia }) {
   return (
     <>
       <Table responsive>
-        <thead>
-          <tr>
-            <th>N°</th>
-            <th>Razão Social</th>
-            <th>Cidade</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
         <tbody>
           <tr>
             <td>{farmacia.id}</td>
