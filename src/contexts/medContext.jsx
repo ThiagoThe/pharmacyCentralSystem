@@ -16,7 +16,8 @@ export const MedProvider = ({ children }) => {
       .then((response) => {
         return response.data;
       })
-      .then((dados) => setMedicamentos(dados));
+      .then((dados) => setMedicamentos(dados))
+      .catch((err) => console.log(err));
   }, []);
 
   const contextValues = { medicamentos };

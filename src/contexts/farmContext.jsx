@@ -17,7 +17,8 @@ export const FarmProvider = ({ children }) => {
       .then((response) => {
         return response.data;
       })
-      .then((dados) => setFarmacias(dados));
+      .then((dados) => setFarmacias(dados))
+      .catch((err) => console.log(err));
   }, []);
 
   const contextValues = { farmacias };

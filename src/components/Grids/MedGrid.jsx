@@ -1,6 +1,6 @@
 import { useMed } from "../../contexts/medContext";
 import { CardMed } from "../Card/CardMed";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Container } from "react-bootstrap";
 
 export const MedGrid = ({ medicamento }) => {
   const context = useMed();
@@ -14,7 +14,11 @@ export const MedGrid = ({ medicamento }) => {
           </Col>
         ))
       ) : (
-        <h3>Não há medicamentos cadastrados</h3>
+        <Container>
+          <Row className="m-5  text-center">
+            <h3>Não há medicamentos cadastrados</h3>
+          </Row>
+        </Container>
       )}
     </Row>
   );
