@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import { Image } from "react-bootstrap";
+import { Container, Nav, Navbar, Image } from "react-bootstrap";
 
 export function Header() {
   return (
@@ -26,6 +23,9 @@ export function Header() {
             </Nav.Link>
             <Nav.Link as={Link} to="/cadastro-medicamentos">
               Cadastrar Medicamentos
+            </Nav.Link>
+            <Nav.Link as={Link} to="/faq">
+              FAQ
             </Nav.Link>
             <Nav.Link as={Link} to="/">
               Sair

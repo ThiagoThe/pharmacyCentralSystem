@@ -14,6 +14,7 @@ import CadastroFarm from "./pages/CadastroFarm";
 import CadastroMed from "./pages/CadastroMed";
 import ListaFarm from "./pages/ListaFarm";
 import ListaMed from "./pages/ListaMed";
+import Faq from "./pages/Faq";
 
 // browser router
 const routes = createBrowserRouter([
@@ -27,6 +28,7 @@ const routes = createBrowserRouter([
       { path: "/cadastro-medicamentos", element: <CadastroMed /> },
       { path: "/lista-farmacias", element: <ListaFarm /> },
       { path: "/lista-medicamentos", element: <ListaMed /> },
+      { path: "/faq", element: <Faq /> },
     ],
   },
 ]);
