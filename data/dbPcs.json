@@ -239,6 +239,26 @@
         "longitude": "-48.5965629"
       },
       "id": 12
+    },
+    {
+      "razao_social": "Farmácia Droga da Raia",
+      "cnpj": "20.009.659/0001-60",
+      "nome_fantasia": "Farmácia Só Raia",
+      "email": "drf@farm.com",
+      "telefone": "(49)3225-8963",
+      "celular": "(49)99999-9669",
+      "endereco": {
+        "cidade": "Chapecó",
+        "estado": "SC",
+        "logradouro": "Avenida Getúlio Dorneles Vargas - S",
+        "bairro": "Centro",
+        "numero": "490",
+        "complemento": "até 490 - lado par",
+        "cep": "89802-001",
+        "latitude": "-27.1077684",
+        "longitude": "-52.6138785"
+      },
+      "id": 13
     }
   ],
   "medicamentos": [
@@ -340,6 +360,15 @@
       "preco_unitario": "10.00",
       "tipo": "Medicamento comum",
       "id": 11
+    },
+    {
+      "nome": "Aspirina 500mg",
+      "laboratorio": "Bayer",
+      "dosagem": "3 vezes ao dia",
+      "descricao": "O comprimido de Aspirina® (ácido acetilsalicílico) é um medicamento para dores de cabeça de intensidade leve a moderada.",
+      "preco_unitario": "15.90",
+      "tipo": "Medicamento comum",
+      "id": 12
     }
   ]
 }
