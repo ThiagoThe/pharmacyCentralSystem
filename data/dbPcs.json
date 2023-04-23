@@ -259,6 +259,46 @@
         "longitude": "-52.6138785"
       },
       "id": 13
+    },
+    {
+      "razao_social": "Farmácia Povo Saudável",
+      "cnpj": "60.123.589/0001-47",
+      "nome_fantasia": "Farmácia do Povo Saudável e Feliz",
+      "email": "farm@gmail.com",
+      "telefone": "(59) 3223-5896",
+      "celular": "(59) 99999-9999",
+      "endereco": {
+        "cidade": "Iguatu",
+        "estado": "CE",
+        "logradouro": "Rua Agner Gomes de Araújo",
+        "bairro": "Esplanada II",
+        "numero": "598",
+        "complemento": "sala 50",
+        "cep": "63505-020",
+        "latitude": "-6.3701649",
+        "longitude": "-39.3177023"
+      },
+      "id": 14
+    },
+    {
+      "razao_social": "Farmácia do SBT",
+      "cnpj": "89.658.999/0001-47",
+      "nome_fantasia": "Farmácia São Paulo",
+      "email": "farm@gmail.com",
+      "telefone": "(21) 4899-9897",
+      "celular": "(21) 99876-5646",
+      "endereco": {
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "logradouro": "Rua Capitão Salomão",
+        "bairro": "Centro",
+        "numero": "89",
+        "complemento": "Na esquina",
+        "cep": "01034-020",
+        "latitude": "-23.5429175",
+        "longitude": "-46.6376981"
+      },
+      "id": 15
     }
   ],
   "medicamentos": [

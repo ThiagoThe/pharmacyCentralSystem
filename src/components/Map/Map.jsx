@@ -1,12 +1,19 @@
+import React from "react";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { useFarm } from "../../contexts/farmContext";
 import { PopFarm } from "./PopFarm";
 import L from "leaflet";
+import iconGPS from "../../.././img/iconGPS.png";
 
 export const Map = () => {
   const geo = useFarm();
+
+  const iconPerson = new L.Icon({
+    iconUrl: iconGPS,
+    iconSize: [90, 90],
+  });
 
   return (
     <MapContainer center={[-28, -50]} zoom={8} scrollWheelZoom={true}>
@@ -23,6 +30,7 @@ export const Map = () => {
                 farmacia.endereco.longitude
               )
             }
+            icon={iconPerson}
             key={farmacia.id}
           >
             <Popup>
