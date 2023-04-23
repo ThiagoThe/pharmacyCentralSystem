@@ -102,10 +102,17 @@ function CadastroFarm() {
               <Form.Label>CNPJ</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Ex: 00.000.000/0001-00"
+                placeholder="Digite somente números"
                 id="cnpj"
                 {...register("cnpj", { required: true })}
-              />{" "}
+                onChange={(event) => {
+                  const cnpj = event.target.value.replace(/\D/g, "");
+                  event.target.value = cnpj.replace(
+                    /^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/,
+                    "$1.$2.$3/$4-$5"
+                  );
+                }}
+              />
             </Form.Group>
 
             <Form.Group as={Col}>
@@ -133,9 +140,16 @@ function CadastroFarm() {
               <Form.Label>Telefone</Form.Label>
               <Form.Control
                 type="tel"
-                placeholder="Ex:(DDD)3333-3333"
+                placeholder="Digite somente números"
                 id="telefone"
                 {...register("telefone", { required: true })}
+                onChange={(event) => {
+                  const tel = event.target.value.replace(/\D/g, "");
+                  event.target.value = tel.replace(
+                    /^(\d{2})(\d{4})(\d{4})/,
+                    "($1) $2-$3"
+                  );
+                }}
               />
             </Form.Group>
 
@@ -143,9 +157,16 @@ function CadastroFarm() {
               <Form.Label>Celular</Form.Label>
               <Form.Control
                 type="tel"
-                placeholder="Ex:(DDD)99999-9999"
+                placeholder="Digite somente números"
                 id="celular"
                 {...register("celular", { required: true })}
+                onChange={(event) => {
+                  const cel = event.target.value.replace(/\D/g, "");
+                  event.target.value = cel.replace(
+                    /^(\d{2})(\d{5})(\d{4})/,
+                    "($1) $2-$3"
+                  );
+                }}
               />
             </Form.Group>
           </Row>
