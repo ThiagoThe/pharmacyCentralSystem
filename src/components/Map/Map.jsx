@@ -16,7 +16,7 @@ export const Map = ({ farmacias }) => {
   });
 
   return (
-    <MapContainer center={[-28, -50]} zoom={8} scrollWheelZoom={true}>
+    <MapContainer center={[-21, -51]} zoom={4} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
