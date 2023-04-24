@@ -133,7 +133,7 @@ function CadastroMed() {
           </Row>
 
           <Button variant="primary" type="submit">
-            Adicionar Medicamento
+            Cadastrar Medicamento
           </Button>
         </Form>
       </Container>

@@ -7,7 +7,7 @@ import { PopFarm } from "./PopFarm";
 import L from "leaflet";
 import iconGPS from "../../.././img/iconGPS.png";
 
-export const Map = () => {
+export const Map = ({ farmacias }) => {
   const geo = useFarm();
 
   const iconPerson = new L.Icon({
@@ -22,22 +22,39 @@ export const Map = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <MarkerClusterGroup>
-        {geo.farmacias.map((farmacia) => (
-          <Marker
-            position={
-              new L.LatLng(
-                farmacia.endereco.latitude,
-                farmacia.endereco.longitude
-              )
-            }
-            icon={iconPerson}
-            key={farmacia.id}
-          >
-            <Popup>
-              <PopFarm farmacia={farmacia} />
-            </Popup>
-          </Marker>
-        ))}
+        {farmacias.length === 0
+          ? geo.farmacias.map((farmacia) => (
+              <Marker
+                position={
+                  new L.LatLng(
+                    farmacia.endereco.latitude,
+                    farmacia.endereco.longitude
+                  )
+                }
+                icon={iconPerson}
+                key={farmacia.id}
+              >
+                <Popup>
+                  <PopFarm farmacia={farmacia} />
+                </Popup>
+              </Marker>
+            ))
+          : farmacias.map((farmacia) => (
+              <Marker
+                position={
+                  new L.LatLng(
+                    farmacia.endereco.latitude,
+                    farmacia.endereco.longitude
+                  )
+                }
+                icon={iconPerson}
+                key={farmacia.id}
+              >
+                <Popup>
+                  <PopFarm farmacia={farmacia} />
+                </Popup>
+              </Marker>
+            ))}
       </MarkerClusterGroup>
     </MapContainer>
   );
