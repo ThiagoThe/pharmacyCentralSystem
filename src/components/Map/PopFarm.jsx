@@ -2,6 +2,8 @@ import { React } from "react";
 import { Link } from "react-router-dom";
 
 export const PopFarm = ({ farmacia }) => {
+  const numeroCelular = farmacia.celular.replace(/[^\d]/g, "");
+
   return (
     <div>
       <h6 className="text-center">{farmacia.razao_social}</h6>
@@ -17,7 +19,7 @@ export const PopFarm = ({ farmacia }) => {
       <hr />
       <strong>Celular: </strong>
       <Link
-        to={`https://wa.me/55${farmacia.celular}`}
+        to={`https://wa.me/55${numeroCelular}`}
         target="_blank"
         rel="noopener noreferrer"
       >
