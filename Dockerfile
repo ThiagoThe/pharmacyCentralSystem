@@ -4,8 +4,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm i
+RUN npm install
 
 EXPOSE 3002
+EXPOSE 8080
 
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "run", "dev", "dev-all" ]
